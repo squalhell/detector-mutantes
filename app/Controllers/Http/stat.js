@@ -4,7 +4,7 @@ const MutantBusiness = require('../Business/mutant');
 module.exports = class StatHttp {
     constructor() { }
 
-    static async getStats() {
+    async getStats() {
         const stats = await MutantBusiness.getStats();
 
         return {

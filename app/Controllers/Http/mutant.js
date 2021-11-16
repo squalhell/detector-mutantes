@@ -13,7 +13,7 @@ const detectSchema = Joi.object().keys({
 module.exports = class MutantHttp {
     constructor() { }
 
-    static async detect(body) {
+    async detect(body) {
         const result = detectSchema.validate(body);
 
         if (result.error) {

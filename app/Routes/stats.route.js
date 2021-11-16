@@ -6,7 +6,7 @@ const StatHttpController = require('../Controllers/Http/stat');
 
 router.get('/', async (req, res, next) => {
     try {
-        return res.status(200).send(await StatHttpController.getStats());
+        return res.status(200).send(await new StatHttpController().getStats());
     } catch (error) {
         next(error)
     }
