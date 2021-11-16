@@ -21,7 +21,7 @@ const config = {
 
 module.exports = winston.createLogger({
     format: winston.format.combine(
-        winston.format.printf(msg => `${moment().format()} - ${msg.level}: ${msg.message}`)
+        winston.format.printf(msg => `${msg.level}: ${msg.message}`)
     ),
     transports: [
         new winston.transports.Console(config.console)
