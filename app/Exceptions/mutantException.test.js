@@ -11,7 +11,7 @@ describe('Mutant Model Exception', () => {
 
     test('Sin Codigo', async () => {
         const error = new MutantException('test', 400)
-        expect(error.code).toBe(CONSTANTS.ERROR_CODES.MUTANT.DEAFULT)
+        expect(error.code).toBe(CONSTANTS.ERROR_CODES.MUTANT.DEFAULT)
     })
 
 })

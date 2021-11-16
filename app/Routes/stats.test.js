@@ -2,6 +2,7 @@ const request = require('supertest');
 
 let mockPgPromise;
 jest.setTimeout(300000);
+jest.mock('jsonwebtoken')
 jest.mock('pg-promise', () => () => () => ({
     one: () => { return mockPgPromise },
     oneOrNone: (query) => { return mockPgPromise }
@@ -17,7 +18,7 @@ describe('Stats', () => {
 
     test('Obtener estadisticas', async () => {
         mockPgPromise = new Promise((resolve, reject) => resolve({}))
-        const response = await request(app).get("/api/v1/stats");
+        const response = await request(app).get("/api/v1/stats").set('authorization', 'TEST-TOKEN');
         expect(response.statusCode).toBe(200)
     })
 

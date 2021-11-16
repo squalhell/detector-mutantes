@@ -6,17 +6,6 @@ module.exports = class MutantBusiness {
     constructor(dna) {
         this.nitrogenBase = ['A', 'T', 'C', 'G'];
         this.dna = dna
-        this.output = {
-            vertical: {
-                numeroSecuencia: 0,
-            },
-            horizontal: {
-                numeroSecuencia: 0
-            },
-            oblicua: {
-                numeroSecuencia: 0
-            }
-        }
     }
 
     async isValidDna() {

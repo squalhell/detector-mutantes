@@ -18,10 +18,30 @@ CREATE TABLE public."diagnostics" (
 	created_at timestamp NOT NULL,
 	CONSTRAINT diagnostics_pk PRIMARY KEY (id)
 );
+
+CREATE TABLE public."user" (
+	id serial NOT NULL,
+	"user" varchar NOT NULL,
+	"password" varchar NOT NULL
+);
 ```
 ## crear y completar variables de entorno mediante archivo .env:
 ```bash
 cp .env.example .env
+```
+
+## JWT KEYS
+Para facilitar la ejecución de este proyecto se agregan dos ejemplos de llaves RSA para que puedan ejecutarlo de manera local.
+> **_NOTA:_** NO UTILIZAR ESTAS LLAVES PARA PRODUCCIÓN.
+
+PRIVADA:
+```bash
+MIIBOQIBAAJBAJx48NqI5i5EabeAKF7dLiUM7bkeLXu/TjZXkNXsgQ6AmThb31TcKwycYxbrCTLzkcZOWFyQ2K7zfjKt2aokQrECAwEAAQJAXwReFgat6IiovcK4QSsE24DnVtOJgSzhnMQ98noEwL3JffYS4ycRWxT2PT7UwRYS9ll6I850o750l5O4pefsQQIhANEnHtLJ8YwAhBC4ZuZK1UWojmfIq82jujrn+X7y4jqpAiEAv4UczZkGCLCLJhrWfLGxXdkpfWmIKm1sgM6XTZbXFMkCIDRybOZKwYlr77IJq7P/++8Vz2/zADH25pIy7XuKCHTRAiAgTyR8ysPp016mHwDwKEnzux70uUjvX2ZelHuR61B9gQIgHkWTlBSFoQzOV3AxOzxv88yKuM2BfezelUV/yE7p0uE=
+```
+
+PUBLICA:
+```bash
+MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJx48NqI5i5EabeAKF7dLiUM7bkeLXu/TjZXkNXsgQ6AmThb31TcKwycYxbrCTLzkcZOWFyQ2K7zfjKt2aokQrECAwEAAQ==
 ```
 
 ## Instalar paquetes npm:

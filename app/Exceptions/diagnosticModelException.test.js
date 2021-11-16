@@ -11,7 +11,7 @@ describe('Diagnostic Model Exception', () => {
 
     test('Sin Codigo', async () => {
         const error = new DiagnosticModelException('test', 400)
-        expect(error.code).toBe(CONSTANTS.ERROR_CODES.DIAGNOSTIC.DEAFULT)
+        expect(error.code).toBe(CONSTANTS.ERROR_CODES.DIAGNOSTIC.DEFAULT)
     })
 
 })

@@ -1,13 +1,19 @@
 const ERROR_CODES = {
     MUTANT: {
-        DEAFULT: 'E_MUTANT',
+        DEFAULT: 'E_MUTANT',
         DNA: 'E_MUTANT_DNA',
         NOT_MUTANT: 'E_NO_MUTANT'
     },
     DIAGNOSTIC: {
-        DEAFULT: 'E_DIAGNOSTIC',
+        DEFAULT: 'E_DIAGNOSTIC',
         DATA_CREATE: 'E_DIAGNOSTIC_CREATE',
         STATS: 'E_DIAGNOSTIC_STAT'
+    },
+    JWT: {
+        DEFAULT: 'E_JWT'
+    },
+    AUTH: {
+        DEFAULT: 'E_AUTH'
     }
 }
 

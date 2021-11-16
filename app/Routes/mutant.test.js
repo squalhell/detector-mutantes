@@ -1,6 +1,7 @@
 const request = require('supertest');
 
 jest.setTimeout(300000)
+jest.mock('jsonwebtoken')
 jest.mock('pg-promise', () => () => () => ({
     one: () => {
         return null
@@ -19,7 +20,7 @@ describe('Mutant', () => {
     });
 
     test('detectar mutante con DNA mutante', async () => {
-        const response = await request(app).post("/api/v1/mutant").send({
+        const response = await request(app).post("/api/v1/mutant").set('authorization', 'TOKEN-TEST').send({
             dna: ["ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"]
         });
 
@@ -27,7 +28,7 @@ describe('Mutant', () => {
     })
 
     test('detectar mutante con DNA humano', async () => {
-        const response = await request(app).post("/api/v1/mutant").send({
+        const response = await request(app).post("/api/v1/mutant").set('authorization', 'TOKEN-TEST').send({
             dna: ["ATGCGA", "CAGTGC", "TTATTT", "AGACGG", "GCGTCA", "TCACTG"]
         });
 
@@ -35,7 +36,7 @@ describe('Mutant', () => {
     })
 
     test('Parametros ingresados inválido', async () => {
-        const response = await request(app).post("/api/v1/mutant").send({
+        const response = await request(app).post("/api/v1/mutant").set('authorization', 'TOKEN-TEST').send({
             dna: ["ATGCGA", "CAGTGC", "TTATTT", "AGACGG", "GCGTCA", "TCACTG", 1]
         });
 
@@ -43,7 +44,7 @@ describe('Mutant', () => {
     })
 
     test('Matriz de NxM', async () => {
-        const response = await request(app).post("/api/v1/mutant").send({
+        const response = await request(app).post("/api/v1/mutant").set('authorization', 'TOKEN-TEST').send({
             dna: ["ATGCGA", "CAGTGC", "TTZTGT", "AGAAGG", "CCCCTA", "TCACTG", "TCACTG"]
         });
 
@@ -51,7 +52,7 @@ describe('Mutant', () => {
     })
 
     test('DNA con elementos que no son bases nitrogenadas', async () => {
-        const response = await request(app).post("/api/v1/mutant").send({
+        const response = await request(app).post("/api/v1/mutant").set('authorization', 'TOKEN-TEST').send({
             dna: ["ATGCGA", "CAGTGC", "TTZTGT", "AGAAGG", "CCCCTA", "TCACTG"]
         });
 
@@ -59,7 +60,7 @@ describe('Mutant', () => {
     })
 
     test('DNA menos a 4x4', async () => {
-        const response = await request(app).post("/api/v1/mutant").send({
+        const response = await request(app).post("/api/v1/mutant").set('authorization', 'TOKEN-TEST').send({
             dna: ["ATG", "CAG", "TTA"]
         });
 

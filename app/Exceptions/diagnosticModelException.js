@@ -8,7 +8,7 @@ module.exports = class DiagnosticException extends Error {
         this.message = message;
         this.status = status;
         this.info = 'Error en el modelo diagnostics'
-        this.code = code || CONSTANTES.ERROR_CODES.DIAGNOSTIC.DEAFULT
+        this.code = code || CONSTANTES.ERROR_CODES.DIAGNOSTIC.DEFAULT
     }
 
 }
