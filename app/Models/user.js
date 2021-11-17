@@ -16,7 +16,7 @@ module.exports = class UserModel {
             return await db.oneOrNone('SELECT "user", "password" FROM "user" WHERE "user" = $1', [user]);
         } catch (error) {
             Logger.error(error.message)
-            throw new UserModelException('Error al buscar el usuario', 403, CONSTANTS.ERROR_CODES.DIAGNOSTIC.STATS)
+            throw new UserModelException('Error al buscar el usuario', 403, CONSTANTS.ERROR_CODES.AUTH.DEFAULT)
         }
     }
 
